@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/Wtyczka_KS_VP" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>
