@@ -15,30 +15,30 @@ class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(569, 427)
-        self.WyborWarstwyComboBox = QtWidgets.QComboBox(Dialog)
-        self.WyborWarstwyComboBox.setGeometry(QtCore.QRect(120, 30, 351, 41))
-        self.WyborWarstwyComboBox.setObjectName("WyborWarstwyComboBox")
         self.calculateHeightButton = QtWidgets.QPushButton(Dialog)
-        self.calculateHeightButton.setGeometry(QtCore.QRect(370, 80, 101, 31))
+        self.calculateHeightButton.setGeometry(QtCore.QRect(350, 80, 121, 31))
         self.calculateHeightButton.setObjectName("calculateHeightButton")
         self.WysokoscWynik = QtWidgets.QLabel(Dialog)
-        self.WysokoscWynik.setGeometry(QtCore.QRect(160, 110, 261, 31))
+        self.WysokoscWynik.setGeometry(QtCore.QRect(120, 110, 351, 71))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(7)
         self.WysokoscWynik.setFont(font)
         self.WysokoscWynik.setObjectName("WysokoscWynik")
         self.ZaznaczonePunkty = QtWidgets.QCheckBox(Dialog)
         self.ZaznaczonePunkty.setGeometry(QtCore.QRect(130, 200, 131, 31))
         self.ZaznaczonePunkty.setObjectName("ZaznaczonePunkty")
         self.PoleButton = QtWidgets.QPushButton(Dialog)
-        self.PoleButton.setGeometry(QtCore.QRect(370, 240, 101, 31))
+        self.PoleButton.setGeometry(QtCore.QRect(360, 240, 111, 31))
         self.PoleButton.setObjectName("PoleButton")
         self.PoleWynik = QtWidgets.QLabel(Dialog)
-        self.PoleWynik.setGeometry(QtCore.QRect(170, 290, 251, 41))
+        self.PoleWynik.setGeometry(QtCore.QRect(130, 280, 331, 81))
         font = QtGui.QFont()
-        font.setPointSize(12)
+        font.setPointSize(7)
         self.PoleWynik.setFont(font)
         self.PoleWynik.setObjectName("PoleWynik")
+        self.WyborWarstwyComboBox = QgsMapLayerComboBox(Dialog)
+        self.WyborWarstwyComboBox.setGeometry(QtCore.QRect(120, 30, 351, 41))
+        self.WyborWarstwyComboBox.setObjectName("WyborWarstwyComboBox")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -46,11 +46,12 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
-        self.calculateHeightButton.setText(_translate("Dialog", "PushButton"))
+        self.calculateHeightButton.setText(_translate("Dialog", "Oblicz wysokość"))
         self.WysokoscWynik.setText(_translate("Dialog", "Wysokość punktu:"))
         self.ZaznaczonePunkty.setText(_translate("Dialog", "CheckBox"))
-        self.PoleButton.setText(_translate("Dialog", "PushButton"))
-        self.PoleWynik.setText(_translate("Dialog", "Wysokość punktu:"))
+        self.PoleButton.setText(_translate("Dialog", "Oblicz pole"))
+        self.PoleWynik.setText(_translate("Dialog", "Pole:"))
+from qgsmaplayercombobox import QgsMapLayerComboBox
 
 
 if __name__ == "__main__":
@@ -61,4 +62,3 @@ if __name__ == "__main__":
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())
-
