@@ -27,6 +27,7 @@ import os
 from qgis.PyQt import uic
 from qgis.PyQt import QtWidgets
 from qgis.core import QgsProject, QgsDistanceArea
+from qgis.core import QgsGeometry
 
 
 # This loads your .ui file so that PyQt can populate your plugin with the elements from Qt Designer
@@ -82,6 +83,44 @@ class Wtyczka_KS_VPDialog(QtWidgets.QDialog, FORM_CLASS):
         self.WysokoscWynik.setText(
             f"Różnica wynosi: {roznica} [m]")
 
+#     def pole(self):
+#         wybrana_warstwa = self.WyborWarstwyComboBox.currentText()
+
+#         # Znajdź warstwę o wybranej nazwie
+#         warstwa = None
+#         for warstwa_ in self.warstwy:
+#             if warstwa_.name() == wybrana_warstwa:
+#                 warstwa = warstwa_
+#                 break
+
+#         if warstwa is None:
+#             self.PoleWynik.setText("Warstwa o podanej nazwie nie istnieje.")
+#             return
+
+#         # Sprawdź, czy dokonano wyboru 3 punktów na warstwie
+#         punkty = warstwa.selectedFeatures()
+#         if len(punkty) != 3:
+#             self.PoleWynik.setText("Wybierz 3 punkty na warstwie.")
+#             return
+
+#         # Oblicz pole powierzchni
+#         pkt1 = punkty[0]
+#         pkt2 = punkty[1]
+#         pkt3 = punkty[2]
+#         pole_pkt = QgsDistanceArea()
+#         pole_pkt.setEllipsoid('WGS84')
+#         pole_pkt.setEllipsoidalMode(True)
+#         punkty_pkt = [pkt1.geometry().asPoint(), pkt2.geometry().asPoint(), pkt3.geometry().asPoint()]
+#         pole = pole_pkt.measurePolygon(punkty_pkt)
+
+#         self.PoleWynik.setText(
+#             f"Pole powierzchni wyznaczone przez punkty {pkt1.id()}, {pkt2.id()}, {pkt3.id()} wynosi: {pole} [m^2]")
+# #####
+
+
+
+# ...
+
     def pole(self):
         wybrana_warstwa = self.WyborWarstwyComboBox.currentText()
 
@@ -96,23 +135,20 @@ class Wtyczka_KS_VPDialog(QtWidgets.QDialog, FORM_CLASS):
             self.PoleWynik.setText("Warstwa o podanej nazwie nie istnieje.")
             return
 
-        # Sprawdź, czy dokonano wyboru 3 punktów na warstwie
+        # Sprawdź, czy dokonano wyboru co najmniej 3 punktów na warstwie
         punkty = warstwa.selectedFeatures()
-        if len(punkty) != 3:
-            self.PoleWynik.setText("Wybierz 3 punkty na warstwie.")
+        if len(punkty) < 3:
+            self.PoleWynik.setText("Wybierz co najmniej 3 punkty na warstwie.")
             return
 
+        # Utwórz listę punktów geometrycznych
+        punkty_pkt = [pkt.geometry().asPoint() for pkt in punkty]
+
+        # Utwórz polygon geometry
+        geometry = QgsGeometry.fromPolygonXY([punkty_pkt])
+
         # Oblicz pole powierzchni
-        pkt1 = punkty[0]
-        pkt2 = punkty[1]
-        pkt3 = punkty[2]
-        pole_pkt = QgsDistanceArea()
-        pole_pkt.setEllipsoid('WGS84')
-        pole_pkt.setEllipsoidalMode(True)
-        punkty_pkt = [pkt1.geometry().asPoint(), pkt2.geometry().asPoint(), pkt3.geometry().asPoint()]
-        pole = pole_pkt.measurePolygon(punkty_pkt)
+        area = geometry.area()
 
         self.PoleWynik.setText(
-            f"Pole powierzchni wyznaczone przez punkty {pkt1.id()}, {pkt2.id()}, {pkt3.id()} wynosi: {pole} [m^2]")
-#####
-
+            f"Pole powierzchni {', '.join(str(pkt.id()) for pkt in punkty)} wynosi: {area} [m^2]")
