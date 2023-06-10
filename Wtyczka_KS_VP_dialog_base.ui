@@ -44,19 +44,6 @@
     <string>Wysokość punktu:</string>
    </property>
   </widget>
-  <widget class="QCheckBox" name="ZaznaczonePunkty">
-   <property name="geometry">
-    <rect>
-     <x>130</x>
-     <y>200</y>
-     <width>131</width>
-     <height>31</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>CheckBox</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="PoleButton">
    <property name="geometry">
     <rect>
