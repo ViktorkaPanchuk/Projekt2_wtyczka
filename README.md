@@ -45,10 +45,10 @@ Konstruktor `__init__` jest specjalną metodą w Pythonie, która jest wywoływa
 #### - Metoda self.setupUi(self)
 Metoda `self.setupUi(self)` ustawia interfejs użytkownika, który został zaprojektowany w Designerze, używając `FORM_CLASS`. Po wykonaniu `self.setupUi(self)` możliwe jest uzyskanie dostępu do dowolnego obiektu zaprojektowanego w Designerze poprzez odwołanie `self.<nazwa_obiektu>`.
 
-#### Utworzenie listy warstw
+#### - Utworzenie listy warstw
 Linia `self.warstwy = QgsProject.instance().mapLayers().values()` tworzy listę warstw, pobierając wszystkie aktualne warstwy z projektu QGIS. Metoda `QgsProject.instance().mapLayers()` zwraca słownik warstw, a `.values()` przekształca te wartości w listę.
 
-#### Dodanie listy warstw do Combo Box
+#### - Dodanie listy warstw do Combo Box
 Następnie, w pętli for, dla każdej warstwy, linia `self.WyborWarstwyComboBox.addItem(warstwa.name())` dodaje nazwę warstwy do ComboBox o nazwie `WyborWarstwyComboBox`. W ten sposób, po uruchomieniu wtyczki, w ComboBox pojawią się opcje do wyboru związane z warstwami dostępnymi w projekcie QGIS.
 
 Ta sekcja kodu ma na celu umożliwienie użytkownikowi wyboru jednej z dostępnych warstw w projekcie przy użyciu ComboBox.
@@ -59,23 +59,23 @@ Ta sekcja kodu ma na celu umożliwienie użytkownikowi wyboru jednej z dostępny
 
 Metoda `roznica_wysokosci(self)` w klasie `Wtyczka_KS_VPDialog` służy do obliczania różnicy wysokości między dwoma wybranymi punktami na warstwie.
 
-#### Pobranie wybranej warstwy
+#### - Pobranie wybranej warstwy
 
 Pierwsza linia kodu w metodzie `roznica_wysokosci` pobiera tekst aktualnie wybranej opcji w `ComboBox` o nazwie `WyborWarstwyComboBox` i przypisuje go do zmiennej `wybrana_warstwa`. Ta wartość reprezentuje nazwę wybranej warstwy.
 
-#### Znalezienie warstwy o wybranej nazwie
+#### - Znalezienie warstwy o wybranej nazwie
 
 Następnie, w pętli for, iterujemy przez wszystkie warstwy w liście `self.warstwy` i porównujemy ich nazwy z `wybrana_warstwa`. Gdy znajdujemy dopasowanie, przypisujemy warstwę do zmiennej `warstwa` i przerywamy pętlę.
 
-#### Sprawdzenie wybranych punktów na warstwie
+#### - Sprawdzenie wybranych punktów na warstwie
 
 Po znalezieniu warstwy, sprawdzamy, czy na niej zostały wybrane dokładnie dwa punkty. Linia `punkty = warstwa.selectedFeatures()` pobiera listę wybranych obiektów (punktów) na tej warstwie. Jeśli ilość wybranych punktów nie wynosi 2, to oznacza, że nie zostały wybrane odpowiednie punkty, a program wyświetla odpowiedni komunikat w interfejsie użytkownika i kończy działanie metody.
 
-#### Obliczenie różnicy wysokości
+#### - Obliczenie różnicy wysokości
 
 Jeśli dwa punkty zostały poprawnie wybrane, następne dwie linie kodu pobierają pierwszy i drugi punkt z listy punkty i przypisują je do zmiennych pkt1 i pkt2 odpowiednio. Następnie, z tych punktów pobieramy wartości wysokości za pomocą metod `pkt1.attribute("zcoord")` i `pkt2.attribute("zcoord")`. Różnica wysokości między tymi dwoma punktami jest obliczana i przypisywana do zmiennej `roznica`.
 
-#### Aktualizacja wyniku w interfejsie użytkownika
+#### - Aktualizacja wyniku w interfejsie użytkownika
 
 Ostatnia linia kodu aktualizuje wynik różnicy wysokości w interfejsie użytkownika, ustawiając tekst w etykiecie `WysokoscWynik` na odpowiednią wartość. W tekście jest wyświetlana różnica wysokości między punktami oraz ich numery identyfikacyjne.
 
@@ -87,27 +87,27 @@ Podsumowując, metoda `roznica_wysokosci` służy do obliczania różnicy wysoko
 ## Metoda Pole
 Metoda `pole(self)` w klasie `Wtyczka_KS_VPDialog` służy do obliczania pola powierzchni na podstawie wybranych punktów na warstwie.
 
-#### Pobranie wybranej warstwy
+#### - Pobranie wybranej warstwy
 
 Pierwsza linia kodu w metodzie `pole` pobiera tekst aktualnie wybranej opcji w `ComboBox` o nazwie `WyborWarstwyComboBox` i przypisuje go do zmiennej `wybrana_warstwa`. Ta wartość reprezentuje nazwę wybranej warstwy.
 
-#### Znalezienie warstwy o wybranej nazwie
+#### - Znalezienie warstwy o wybranej nazwie
 
 Następnie, w pętli for, iterujemy przez wszystkie warstwy w liście `self.warstwy` i porównujemy ich nazwy z `wybrana_warstwa`. Gdy znajdujemy dopasowanie, przypisujemy warstwę do zmiennej warstwa i przerywamy pętlę.
 
-#### Sprawdzenie wybranych punktów na warstwie
+#### - Sprawdzenie wybranych punktów na warstwie
 
 Po znalezieniu warstwy, sprawdzamy, czy na niej zostały wybrane co najmniej trzy punkty. Linia `punkty = warstwa.selectedFeatures()` pobiera listę wybranych obiektów (punktów) na tej warstwie. Jeśli ilość wybranych punktów jest mniejsza niż 3, to oznacza, że nie zostały wybrane wystarczające punkty, a program wyświetla odpowiedni komunikat w interfejsie użytkownika i kończy działanie metody.
 
-#### Tworzenie listy punktów geometrycznych
+#### - Tworzenie listy punktów geometrycznych
 
 Następnie tworzymy listę punktów geometrycznych `punkty_pkt`, która zawiera współrzędne punktów dla obliczania geometrii.
 
-#### Tworzenie obiektu geometrii i obliczanie pola powierzchni
+#### - Tworzenie obiektu geometrii i obliczanie pola powierzchni
 
 Na podstawie listy punktów geometrycznych `punkty_pkt` tworzymy obiekt geometrii `geometry` reprezentujący polygon. Następnie, za pomocą metody `area()` obliczamy pole powierzchni `area` na podstawie tego obiektu.
 
-#### Aktualizacja wyniku w interfejsie użytkownika
+#### - Aktualizacja wyniku w interfejsie użytkownika
 
 Ostatnia linia kodu aktualizuje wynik pola powierzchni w interfejsie użytkownika, ustawiając tekst w etykiecie `PoleWynik` na odpowiednią wartość. W tekście jest wyświetlane pole powierzchni oraz numery identyfikacyjne punktów.
 
