@@ -36,11 +36,11 @@ Metody obliczania wysokości oraz pola znajdują się wewnątrz klasy o nazwie: 
 
 ## Klasa Wtyczka_KS_VPDialog
 
-Wtyczka_KS_VPDialog to klasa dialogowa, która dziedziczy po klasach QtWidgets.QDialog i FORM_CLASS. Służy do tworzenia interfejsu użytkownika i obsługi zdarzeń dla wtyczki.
+`Wtyczka_KS_VPDialog` to klasa dialogowa, która dziedziczy po klasach QtWidgets.QDialog i FORM_CLASS. Służy do tworzenia interfejsu użytkownika i obsługi zdarzeń dla wtyczki.
 Poniżej znajdują się opisy każdej z metod.
 
 ## Metoda init
-Konstruktor __init__ jest specjalną metodą w Pythonie, która jest wywoływana podczas tworzenia nowego obiektu klasy. W przypadku tej klasy Wtyczka_KS_VPDialog, metoda __init__ służy do inicjalizacji nowego obiektu dialogowego.
+Konstruktor `__init__` jest specjalną metodą w Pythonie, która jest wywoływana podczas tworzenia nowego obiektu klasy. W przypadku tej klasy Wtyczka_KS_VPDialog, metoda `__init__` służy do inicjalizacji nowego obiektu dialogowego.
 
 #### Metoda self.setupUi(self)
 Metoda `self.setupUi(self)` ustawia interfejs użytkownika, który został zaprojektowany w Designerze, używając `FORM_CLASS`. Po wykonaniu `self.setupUi(self)` możliwe jest uzyskanie dostępu do dowolnego obiektu zaprojektowanego w Designerze poprzez odwołanie `self.<nazwa_obiektu>`.
@@ -65,7 +65,7 @@ Pierwsza linia kodu w metodzie `roznica_wysokosci` pobiera tekst aktualnie wybra
 
 #### Znalezienie warstwy o wybranej nazwie
 
-Następnie, w pętli `for`, iterujemy przez wszystkie warstwy w liście `self.warstwy` i porównujemy ich nazwy z `wybrana_warstwa`. Gdy znajdujemy dopasowanie, przypisujemy warstwę do zmiennej `warstwa` i przerywamy pętlę.
+Następnie, w pętli for, iterujemy przez wszystkie warstwy w liście `self.warstwy` i porównujemy ich nazwy z `wybrana_warstwa`. Gdy znajdujemy dopasowanie, przypisujemy warstwę do zmiennej `warstwa` i przerywamy pętlę.
 
 #### Sprawdzenie wybranych punktów na warstwie
 
@@ -73,7 +73,7 @@ Po znalezieniu warstwy, sprawdzamy, czy na niej zostały wybrane dokładnie dwa 
 
 #### Obliczenie różnicy wysokości
 
-Jeśli dwa punkty zostały poprawnie wybrane, następne dwie linie kodu pobierają pierwszy i drugi punkt z listy `punkty` i przypisują je do zmiennych `pkt1` i `pkt2` odpowiednio. Następnie, z tych punktów pobieramy wartości wysokości za pomocą metod `pkt1.attribute("zcoord")` i `pkt2.attribute("zcoord")`. Różnica wysokości między tymi dwoma punktami jest obliczana i przypisywana do zmiennej `roznica`.
+Jeśli dwa punkty zostały poprawnie wybrane, następne dwie linie kodu pobierają pierwszy i drugi punkt z listy punkty i przypisują je do zmiennych pkt1 i pkt2 odpowiednio. Następnie, z tych punktów pobieramy wartości wysokości za pomocą metod `pkt1.attribute("zcoord")` i `pkt2.attribute("zcoord")`. Różnica wysokości między tymi dwoma punktami jest obliczana i przypisywana do zmiennej `roznica`.
 
 #### Aktualizacja wyniku w interfejsie użytkownika
 
@@ -93,7 +93,7 @@ Pierwsza linia kodu w metodzie `pole` pobiera tekst aktualnie wybranej opcji w `
 
 #### Znalezienie warstwy o wybranej nazwie
 
-Następnie, w pętli `for`, iterujemy przez wszystkie warstwy w liście `self.warstwy` i porównujemy ich nazwy z `wybrana_warstwa`. Gdy znajdujemy dopasowanie, przypisujemy warstwę do zmiennej `warstwa` i przerywamy pętlę.
+Następnie, w pętli for, iterujemy przez wszystkie warstwy w liście `self.warstwy` i porównujemy ich nazwy z `wybrana_warstwa`. Gdy znajdujemy dopasowanie, przypisujemy warstwę do zmiennej warstwa i przerywamy pętlę.
 
 #### Sprawdzenie wybranych punktów na warstwie
 
