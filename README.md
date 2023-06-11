@@ -42,7 +42,7 @@ Poniżej znajdują się opisy każdej z metod.
 ## Metoda init
 Konstruktor `__init__` jest specjalną metodą w Pythonie, która jest wywoływana podczas tworzenia nowego obiektu klasy. W przypadku tej klasy Wtyczka_KS_VPDialog, metoda `__init__` służy do inicjalizacji nowego obiektu dialogowego.
 
-#### Metoda self.setupUi(self)
+#### - Metoda self.setupUi(self)
 Metoda `self.setupUi(self)` ustawia interfejs użytkownika, który został zaprojektowany w Designerze, używając `FORM_CLASS`. Po wykonaniu `self.setupUi(self)` możliwe jest uzyskanie dostępu do dowolnego obiektu zaprojektowanego w Designerze poprzez odwołanie `self.<nazwa_obiektu>`.
 
 #### Utworzenie listy warstw
