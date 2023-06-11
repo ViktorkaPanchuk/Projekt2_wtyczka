@@ -144,7 +144,7 @@ Po wykonaniu tych kroków wtyczka powinna być zainstalowana i gotowa do użycia
 ## Uwagi
 
 Żeby wtyczka działała w progrmie Qgis muszą zostać zaznaczone dokładnie 2 punkty dla różnicy wysokości, oraz przynajmniej 3 punkty dla obliczenia pola.
-Ponadto punkty muszą mieć współrzędne X, Y i Z (w tabeli atrybutów Xcoord, Ycoord, Zcoord). Najlepiej żeby były to punkty na warstwie z dodaną geometrią. 
+Ponadto punkty muszą mieć współrzędne X, Y i Z (w tabeli atrybutów xcoord, ycoord, zcoord). W innym przypadku w QGIS zmienić nazwę atrybutu wysokości na "zcoord". Najlepiej żeby były to punkty na warstwie z dodaną geometrią. 
 
 W programie Qgis przy wykoaniu wtyczki pojawia się błąd pythona o treści:
       `Wtyczka_KS_VP_dialog.py", line 126, in pole
