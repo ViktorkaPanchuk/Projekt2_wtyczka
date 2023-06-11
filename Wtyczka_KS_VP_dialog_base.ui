@@ -29,9 +29,9 @@
   <widget class="QLabel" name="WysokoscWynik">
    <property name="geometry">
     <rect>
-     <x>120</x>
+     <x>90</x>
      <y>110</y>
-     <width>351</width>
+     <width>441</width>
      <height>71</height>
     </rect>
    </property>
@@ -42,6 +42,9 @@
    </property>
    <property name="text">
     <string>Wysokość punktu:</string>
+   </property>
+   <property name="wordWrap">
+    <bool>false</bool>
    </property>
   </widget>
   <widget class="QPushButton" name="PoleButton">
@@ -60,9 +63,9 @@
   <widget class="QLabel" name="PoleWynik">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>280</y>
-     <width>331</width>
+     <x>90</x>
+     <y>300</y>
+     <width>431</width>
      <height>81</height>
     </rect>
    </property>
