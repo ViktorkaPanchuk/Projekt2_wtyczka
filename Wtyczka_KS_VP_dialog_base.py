@@ -24,9 +24,6 @@ class Ui_Dialog(object):
         font.setPointSize(7)
         self.WysokoscWynik.setFont(font)
         self.WysokoscWynik.setObjectName("WysokoscWynik")
-        self.ZaznaczonePunkty = QtWidgets.QCheckBox(Dialog)
-        self.ZaznaczonePunkty.setGeometry(QtCore.QRect(130, 200, 131, 31))
-        self.ZaznaczonePunkty.setObjectName("ZaznaczonePunkty")
         self.PoleButton = QtWidgets.QPushButton(Dialog)
         self.PoleButton.setGeometry(QtCore.QRect(360, 240, 111, 31))
         self.PoleButton.setObjectName("PoleButton")
@@ -48,7 +45,6 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.calculateHeightButton.setText(_translate("Dialog", "Oblicz wysokość"))
         self.WysokoscWynik.setText(_translate("Dialog", "Wysokość punktu:"))
-        self.ZaznaczonePunkty.setText(_translate("Dialog", "CheckBox"))
         self.PoleButton.setText(_translate("Dialog", "Oblicz pole"))
         self.PoleWynik.setText(_translate("Dialog", "Pole:"))
 from qgsmaplayercombobox import QgsMapLayerComboBox

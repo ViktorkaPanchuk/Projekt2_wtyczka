@@ -81,7 +81,9 @@ class Wtyczka_KS_VPDialog(QtWidgets.QDialog, FORM_CLASS):
         roznica = wysokosc1 - wysokosc2
 
         self.WysokoscWynik.setText(
-            f"Różnica wynosi: {roznica} [m]")
+            f"Różnica wysokości między punktami {', '.join(str(pkt.id()) for pkt in punkty)} wynosi: {roznica} [m]")
+        #Różnica wysokości między punktami o numerachPKT1,PKT2wynosi:WYNIK[m]”);
+        
 
 #     def pole(self):
 #         wybrana_warstwa = self.WyborWarstwyComboBox.currentText()
