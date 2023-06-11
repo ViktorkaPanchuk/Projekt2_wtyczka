@@ -7,14 +7,14 @@ Funkcje wykorzystują się dla transformacji pojedynczych punktów albo przekszt
 Do obsługi programu najlepiej używać wiersza poleceń (Command Prompt lub Windows POwerShell)
 
 ## Spis treści:
-- [Opis wtyczki](#opis)
+- [Opis wtyczki](#opis-wtyczki)
 - [Do zainstalowania](#do-zainstalowania)
-- [Klasa Wtyczka_KS_VPDialog](#Klasa-Wtyczka_KS_VPDialog)
-- [Metoda init](#Metoda-init)
-- [Metoda roznica_wysokosci](#Metoda-roznica-wysokosci)
+- [Klasa Wtyczka_KS_VPDialog](#klasa-wtyczka_ks_vpdialog)
+- [Metoda init](#metoda-init)
+- [Metoda roznica_wysokosci](#metoda-roznica_wysokosci)
 - [Metoda Pole](#metoda-pole)
-- [Uwagi](#Uwagi)
-- [Dodanie wtyczki do programu Qgis](#Dodanie-wtyczki-do-programu-Qgis)
+- [Uwagi](#uwagi)
+- [Dodanie wtyczki do programu Qgis](#dodanie-wtyczki-do-programu-qgis)
 
 ## Opis wtyczki
 Wtyczka ta służy do dwóch funkcji: obliczenia różnicy wysokości oraz pola pomiędzy zaznaczonymi punktami. Wtyczka posługuje się bibliotekami i metodami zaimpotowanymi z pythona, które są wymienione w podrozdziale "Do zainstalowania".
@@ -55,7 +55,7 @@ Ta sekcja kodu ma na celu umożliwienie użytkownikowi wyboru jednej z dostępny
 
 
 
-## Metoda roznica_wysokosci(self)
+## Metoda roznica_wysokosci
 
 Metoda `roznica_wysokosci(self)` w klasie `Wtyczka_KS_VPDialog` służy do obliczania różnicy wysokości między dwoma wybranymi punktami na warstwie.
 
