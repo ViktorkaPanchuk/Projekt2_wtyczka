@@ -9,7 +9,7 @@ Do obsługi programu najlepiej używać wiersza poleceń (Command Prompt lub Win
 ## Spis treści:
 - [Opis wtyczki](#opis)
 - [Do zainstalowania](#do-zainstalowania)
-- [Klasa Wtyczka_KS_VPDialog](#Klasa Wtyczka_KS_VPDialog)
+- [Klasa Wtyczka_KS_VPDialog](#Klasa-Wtyczka_KS_VPDialog)
 - [Metoda __init__(self, parent=None)]
 - [Metoda roznica_wysokosci]
 - [Metoda Pole](#metoda-pole)
