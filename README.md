@@ -147,9 +147,9 @@ Po wykonaniu tych kroków wtyczka powinna być zainstalowana i gotowa do użycia
 Ponadto punkty muszą mieć współrzędne X, Y i Z (w tabeli atrybutów Xcoord, Ycoord, Zcoord). Najlepiej żeby były to punkty na warstwie z dodaną geometrią. 
 
 W programie Qgis przy wykoaniu wtyczki pojawia się błąd pythona o treści:
-  Wtyczka_KS_VP_dialog.py", line 126, in pole
-  pole_pkt.setSourceCrs(QgsCoordinateReferenceSystem('EPSG:4326'), QgsProject.instance().crs().authid())
-  TypeError: QgsDistanceArea.setSourceCrs(): argument 2 has unexpected type 'str'
+      Wtyczka_KS_VP_dialog.py", line 126, in pole
+      pole_pkt.setSourceCrs(QgsCoordinateReferenceSystem('EPSG:4326'), QgsProject.instance().crs().authid())
+      TypeError: QgsDistanceArea.setSourceCrs(): argument 2 has unexpected type 'str'
    
    jednak pomimo tego błędu wtyczka działa poprawnie.
 
