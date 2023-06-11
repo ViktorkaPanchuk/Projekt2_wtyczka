@@ -10,11 +10,11 @@ Do obsługi programu najlepiej używać wiersza poleceń (Command Prompt lub Win
 - [Opis wtyczki](#opis)
 - [Do zainstalowania](#do-zainstalowania)
 - [Klasa Wtyczka_KS_VPDialog](#Klasa-Wtyczka_KS_VPDialog)
-- [Metoda __init__(self, parent=None)]
-- [Metoda roznica_wysokosci]
+- [Metoda init](#Metoda-init)
+- [Metoda roznica_wysokosci](#Metoda-roznica-wysokosci)
 - [Metoda Pole](#metoda-pole)
-- [Uwagi](#uwagi)
-- [Dodanie wtyczki do programu Qgis] (#Dodanie-wtyczki-do-programu-Qgis)
+- [Uwagi](#Uwagi)
+- [Dodanie wtyczki do programu Qgis](#Dodanie-wtyczki-do-programu-Qgis)
 
 ## Opis wtyczki
 Wtyczka ta służy do dwóch funkcji: obliczenia różnicy wysokości oraz pola pomiędzy zaznaczonymi punktami. Wtyczka posługuje się bibliotekami i metodami zaimpotowanymi z pythona, które są wymienione w podrozdziale "Do zainstalowania".
@@ -39,24 +39,23 @@ Metody obliczania wysokości oraz pola znajdują się wewnątrz klasy o nazwie: 
 Wtyczka_KS_VPDialog to klasa dialogowa, która dziedziczy po klasach QtWidgets.QDialog i FORM_CLASS. Służy do tworzenia interfejsu użytkownika i obsługi zdarzeń dla wtyczki.
 Poniżej znajdują się opisy każdej z metod.
 
-## Metoda __init__(self, parent=None)
-
+## Metoda init
 Konstruktor __init__ jest specjalną metodą w Pythonie, która jest wywoływana podczas tworzenia nowego obiektu klasy. W przypadku tej klasy Wtyczka_KS_VPDialog, metoda __init__ służy do inicjalizacji nowego obiektu dialogowego.
 
 #### Metoda self.setupUi(self)
-Metoda self.setupUi(self) ustawia interfejs użytkownika, który został zaprojektowany w Designerze, używając FORM_CLASS. Po wykonaniu self.setupUi(self) możliwe jest uzyskanie dostępu do dowolnego obiektu zaprojektowanego w Designerze poprzez odwołanie self.<nazwa_obiektu>.
+Metoda `self.setupUi(self)` ustawia interfejs użytkownika, który został zaprojektowany w Designerze, używając `FORM_CLASS`. Po wykonaniu `self.setupUi(self)` możliwe jest uzyskanie dostępu do dowolnego obiektu zaprojektowanego w Designerze poprzez odwołanie `self.<nazwa_obiektu>`.
 
 #### Utworzenie listy warstw
-Linia self.warstwy = QgsProject.instance().mapLayers().values() tworzy listę warstw, pobierając wszystkie aktualne warstwy z projektu QGIS. Metoda QgsProject.instance().mapLayers() zwraca słownik warstw, a .values() przekształca te wartości w listę.
+Linia `self.warstwy = QgsProject.instance().mapLayers().values()` tworzy listę warstw, pobierając wszystkie aktualne warstwy z projektu QGIS. Metoda `QgsProject.instance().mapLayers()` zwraca słownik warstw, a `.values()` przekształca te wartości w listę.
 
 #### Dodanie listy warstw do Combo Box
-Następnie, w pętli for, dla każdej warstwy, linia self.WyborWarstwyComboBox.addItem(warstwa.name()) dodaje nazwę warstwy do ComboBox o nazwie WyborWarstwyComboBox. W ten sposób, po uruchomieniu wtyczki, w ComboBox pojawią się opcje do wyboru związane z warstwami dostępnymi w projekcie QGIS.
+Następnie, w pętli for, dla każdej warstwy, linia `self.WyborWarstwyComboBox.addItem(warstwa.name())` dodaje nazwę warstwy do ComboBox o nazwie `WyborWarstwyComboBox`. W ten sposób, po uruchomieniu wtyczki, w ComboBox pojawią się opcje do wyboru związane z warstwami dostępnymi w projekcie QGIS.
 
 Ta sekcja kodu ma na celu umożliwienie użytkownikowi wyboru jednej z dostępnych warstw w projekcie przy użyciu ComboBox.
 
 
 
-## Metoda `roznica_wysokosci(self)
+## Metoda roznica_wysokosci(self)
 
 Metoda `roznica_wysokosci(self)` w klasie `Wtyczka_KS_VPDialog` służy do obliczania różnicy wysokości między dwoma wybranymi punktami na warstwie.
 
