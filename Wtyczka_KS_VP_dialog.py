@@ -26,6 +26,7 @@ import os
 
 from qgis.PyQt import uic
 from qgis.PyQt import QtWidgets
+from qgis.core import QgsProject, QgsDistanceArea
 from qgis.core import QgsGeometry
 from qgis.core import QgsProject, QgsDistanceArea, QgsCoordinateReferenceSystem
 
