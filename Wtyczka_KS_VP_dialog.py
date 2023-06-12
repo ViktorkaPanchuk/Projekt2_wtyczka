@@ -108,28 +108,34 @@ class Wtyczka_KS_VPDialog(QtWidgets.QDialog, FORM_CLASS):
             self.PoleWynik.setText("Wybierz co najmniej 3 punkty na warstwie.")
             return
 
-        # Utwórz listę punktów geometrycznych
-        punkty_pkt = [pkt.geometry().asPoint() for pkt in punkty]
+        # Utwórz listę współrzędnych x i y zaznaczonych punktów
+        x_points = [pkt.geometry().asPoint()[0] for pkt in punkty]
+        y_points = [pkt.geometry().asPoint()[1] for pkt in punkty]
 
-        # Utwórz polygon geometry
-        geometry = QgsGeometry.fromPolygonXY([punkty_pkt])
+        # Dodaj pierwszy punkt na koniec list, aby zamknąć figurę
+        x_points.append(x_points[0])
+        y_points.append(y_points[0])
 
-        # Oblicz pole powierzchni
-        area = geometry.area()
+        # Oblicz pole na podstawie współrzędnych punktów (metoda Gaussa)
+        field_area = 0.0
+        n = len(punkty)
+        for i in range(n):
+            field_area += (x_points[i] * y_points[i + 1] - x_points[i + 1] * y_points[i])
 
-        self.PoleWynik.setText(
-            f"Pole powierzchni {', '.join(str(pkt.id()) for pkt in punkty)} wynosi: {area} m^2")
-        pkt1 = punkty[0]
-        pkt2 = punkty[1]
-        pkt3 = punkty[2]
-        pole_pkt = QgsDistanceArea()
-        pole_pkt.setSourceCrs(QgsCoordinateReferenceSystem('EPSG:4326'), QgsProject.instance().crs().authid())
-        pole_pkt.ellipsoidalMode = True  # Ustawienie trybu elipsoidalnego na True
+        field_area = abs(field_area) / 2.0
 
-        punkty_pkt = [pkt1.geometry().asPoint(), pkt2.geometry().asPoint(), pkt3.geometry().asPoint()]
-        pole = pole_pkt.measurePolygon(punkty_pkt)
+        if len(punkty) > 4:
+            message = f"Pole powierzchni punktów {', '.join(str(pkt.id()) for pkt in punkty)} wynosi: {field_area} m^2"
+            self.show_message_box(message)
+        else:
+            self.PoleWynik.setText(
+                f"Pole powierzchni {', '.join(str(pkt.id()) for pkt in punkty)} wynosi: {field_area} m^2")
 
-        self.PoleWynik.setText(
-            f"Pole wynosi: {pole} [m^2]")
+    def show_message_box(self, message):
+        message_box = QtWidgets.QMessageBox()
+        message_box.setText(message)
+        message_box.setWindowTitle("Wynik")
+        message_box.setStandardButtons(QtWidgets.QMessageBox.Ok)
+        message_box.exec_()
 #####
 
