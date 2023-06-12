@@ -106,7 +106,7 @@ Aby obliczyć pole potrzeba zamkąć figurę dlatego dodajemy pierwszy punkt z p
 Następnie, przy użyciu metody Gaussa, obliczamy pole powierzchni na podstawie współrzędnych punktów. Wykorzystujemy pętlę for i sumujemy iloczyny składników wzoru Gaussa dla kolejnych punktów.
 
 #### - Zaokrąglenie i aktualizacja wyniku w interfejsie użytkownika
-Po obliczeniu pola powierzchni, zaokrąglamy je do czterech miejsc po przecinku i aktualizujemy wynik w interfejsie użytkownika. Jeśli liczba wybranych punktów jest większa niż 4, komunikat wyświetla się w oknie dialogowym za pomocą metody `show_message_box()`. Taki rodzaj wyświetlania wyniku jest wygodniejszy dla dużej ilości punktów. W przeciwnym razie, ustawiamy tekst wyniku w etykiecie `PoleWynik`.
+Po obliczeniu pola powierzchni, zaokrąglamy je do czterech miejsc po przecinku i aktualizujemy wynik w interfejsie użytkownika. Jeśli liczba wybranych punktów jest większa niż 4, komunikat wyświetla się w oknie dialogowym za pomocą metody `show_message_box()`. Taki rodzaj wyświetlania wyniku jest wygodniejszy dla dużej ilości punktów, ponieważ dla dużego pola łatwiej jest skopiować wynik, niż go przepisywać. W przeciwnym razie, ustawiamy tekst wyniku w etykiecie `PoleWynik`.
 
 
 
