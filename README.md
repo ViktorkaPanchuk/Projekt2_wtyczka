@@ -125,10 +125,10 @@ Podsumowując, metoda `pole` służy do obliczania pola powierzchni na podstawie
 
 Aby dodać wtyczkę do programu QGIS, wykonaj następujące kroki:
 
-1. Pobierz cały folder z wtyczką z repozytorium.
+1. Pobierz wszystkie pliki z repozytorium.
 2. Znajdź folder z wtyczkami programu QGIS na swoim komputerze. Zazwyczaj ścieżka do tego folderu to: `C:\Users\user\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins`. 
    * Uwaga: Upewnij się, że podstawiasz odpowiednią nazwę użytkownika w ścieżce folderu (`user`).
-3. Skopiuj cały folder z wtyczką, który pobrałeś w kroku 1, do folderu z wtyczkami QGIS.
+3. Utwórz w folderze plugins folder o nazwie `Wtyczka_KS_VP` (ważne żeby nazwa folderu była taka sama), a następnie wklej wszystkie pliki pobrane z repozytorium do tego folderu.
 4. Uruchom program QGIS.
 5. Przejdź do menu "Wtyczki" (Plugins) na pasku menu głównego QGIS.
 6. Wybierz opcję "Zarządzaj wtyczkami" (Manage and Install Plugins). Otworzy się okno zarządzania wtyczkami.
@@ -146,7 +146,7 @@ Po wykonaniu tych kroków wtyczka powinna być zainstalowana i gotowa do użycia
 Żeby wtyczka działała w progrmie Qgis muszą zostać zaznaczone dokładnie 2 punkty dla różnicy wysokości, oraz przynajmniej 3 punkty dla obliczenia pola.
 Ponadto punkty muszą mieć współrzędne X, Y i Z (w tabeli atrybutów xcoord, ycoord, zcoord). W innym przypadku w QGIS zmienić nazwę atrybutu wysokości na "zcoord". Najlepiej żeby były to punkty na warstwie z dodaną geometrią. 
 
-W programie Qgis przy wykoaniu wtyczki pojawia się błąd pythona o treści:
+W programie Qgis przy wykoaniu wtyczki może pojawić się błąd pythona o treści:
       `Wtyczka_KS_VP_dialog.py", line 126, in pole
       pole_pkt.setSourceCrs(QgsCoordinateReferenceSystem('EPSG:4326'), QgsProject.instance().crs().authid())
       TypeError: QgsDistanceArea.setSourceCrs(): argument 2 has unexpected type 'str'`
@@ -157,10 +157,11 @@ W programie Qgis przy wykoaniu wtyczki pojawia się błąd pythona o treści:
 
 ## Przyklady uzycia
 
+#### Przykład użycia wtyczki do obliczenia różnicy wysokości pomiędzy dwoma zaznaczonymi punktami:
 ![Example screenshot](/screens/wysokosc.png)
-
+#### Przykład użycia wtyczki do obliczenia pola dla 3 zaznaczonych punktów:
 ![Example screenshot](/screens/pole1.png)
-
+#### Przykład użycia wtyczki dla większej ilości zaznaczonych punktów:
 ![Example screenshot](/screens/pole2.png)
 
 
