@@ -80,7 +80,7 @@ class Wtyczka_KS_VPDialog(QtWidgets.QDialog, FORM_CLASS):
         wysokosc1 = pkt1.attribute("zcoord")
         wysokosc2 = pkt2.attribute("zcoord")
         roznica = wysokosc1 - wysokosc2
-
+        roznica = round(roznica, 4)
         self.WysokoscWynik.setText(
             f"Różnica wysokości między punktami {', '.join(str(pkt.id()) for pkt in punkty)} wynosi: {roznica} m")
         #Różnica wysokości między punktami o numerachPKT1,PKT2wynosi:WYNIK[m]”);
@@ -123,6 +123,7 @@ class Wtyczka_KS_VPDialog(QtWidgets.QDialog, FORM_CLASS):
             field_area += (x_points[i] * y_points[i + 1] - x_points[i + 1] * y_points[i])
 
         field_area = abs(field_area) / 2.0
+        field_area = round(field_area, 4)
 
         if len(punkty) > 4:
             message = f"Pole powierzchni punktów {', '.join(str(pkt.id()) for pkt in punkty)} wynosi: {field_area} m^2"
