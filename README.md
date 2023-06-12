@@ -15,7 +15,7 @@ Do obsługi programu najlepiej używać wiersza poleceń (Command Prompt lub Win
 - [Metoda Pole](#metoda-pole)
 - [Dodanie wtyczki do programu Qgis](#dodanie-wtyczki-do-programu-qgis)
 - [Uwagi](#uwagi)
-- [Przykłady użycia](#przykłady_użycia)
+- [Przykłady użycia](#przyklady-uzycia)
 ## Opis wtyczki
 Wtyczka ta służy do dwóch funkcji: obliczenia różnicy wysokości oraz pola pomiędzy zaznaczonymi punktami. Wtyczka posługuje się bibliotekami i metodami zaimpotowanymi z pythona, które są wymienione w podrozdziale "Do zainstalowania".
 
