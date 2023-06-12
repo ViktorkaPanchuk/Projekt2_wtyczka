@@ -3,8 +3,6 @@
 # Wtyczka do programu Qgis
 **Wtyczka służąca do obliczenia różnicy wysokości oraz pola powierzchni pomiędzy zaznaczonymi punktami**. 
 
-Funkcje wykorzystują się dla transformacji pojedynczych punktów albo przekształcania danych z pliku wejściowego.
-Do obsługi programu najlepiej używać wiersza poleceń (Command Prompt lub Windows POwerShell)
 
 ## Spis treści:
 - [Opis wtyczki](#opis-wtyczki)
