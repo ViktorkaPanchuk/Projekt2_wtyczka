@@ -88,36 +88,25 @@ Podsumowując, metoda `roznica_wysokosci` służy do obliczania różnicy wysoko
 Metoda `pole(self)` w klasie `Wtyczka_KS_VPDialog` służy do obliczania pola powierzchni na podstawie wybranych punktów na warstwie.
 
 #### - Pobranie wybranej warstwy
-
-Pierwsza linia kodu w metodzie `pole` pobiera tekst aktualnie wybranej opcji w `ComboBox` o nazwie `WyborWarstwyComboBox` i przypisuje go do zmiennej `wybrana_warstwa`. Ta wartość reprezentuje nazwę wybranej warstwy.
+Pierwsza linia kodu w metodzie `pole` pobiera tekst aktualnie wybranej opcji z `ComboBox` o nazwie `WyborWarstwyComboBox` i przypisuje go do zmiennej `wybrana_warstwa`. Ta wartość reprezentuje nazwę wybranej warstwy.
 
 #### - Znalezienie warstwy o wybranej nazwie
-
 Następnie, w pętli for, iterujemy przez wszystkie warstwy w liście `self.warstwy` i porównujemy ich nazwy z `wybrana_warstwa`. Gdy znajdujemy dopasowanie, przypisujemy warstwę do zmiennej warstwa i przerywamy pętlę.
 
 #### - Sprawdzenie wybranych punktów na warstwie
+Po znalezieniu warstwy, sprawdzamy, czy na niej zostały wybrane co najmniej trzy punkty. Jeśli ilość wybranych punktów jest mniejsza niż 3, to oznacza, że nie została wybrana wystarczająca ilość punktów. W takim wypadku program wyświetla odpowiedni komunikat w interfejsie użytkownika i kończy działanie metody.
 
-Po znalezieniu warstwy, sprawdzamy, czy na niej zostały wybrane co najmniej trzy punkty. Linia `punkty = warstwa.selectedFeatures()` pobiera listę wybranych obiektów (punktów) na tej warstwie. Jeśli ilość wybranych punktów jest mniejsza niż 3, to oznacza, że nie zostały wybrane wystarczające punkty, a program wyświetla odpowiedni komunikat w interfejsie użytkownika i kończy działanie metody.
+#### - Tworzenie listy współrzędnych x i y zaznaczonych punktów
+Następnie tworzymy listę współrzędnych x i y zaznaczonych punktów, które będziemy używać do obliczeń. Wykorzystujemy pętlę listową, aby przeiterować przez punkty i uzyskać współrzędne x i y za pomocą metody `asPoint()`.
 
-#### - Tworzenie listy punktów geometrycznych
+#### - Dodanie pierwszego punktu na koniec listy
+Aby obliczyć pole potrzeba zamkąć figurę dlatego dodajemy pierwszy punkt z powrotem na koniec listy współrzędnych x i y.
 
-Następnie tworzymy listę punktów geometrycznych `punkty_pkt`, która zawiera współrzędne punktów dla obliczania geometrii.
+#### - Obliczenie pola powierzchni
+Następnie, przy użyciu metody Gaussa, obliczamy pole powierzchni na podstawie współrzędnych punktów. Wykorzystujemy pętlę for i sumujemy iloczyny składników wzoru Gaussa dla kolejnych punktów.
 
-#### - Tworzenie obiektu geometrii i obliczanie pola powierzchni
-
-Na podstawie listy punktów geometrycznych `punkty_pkt` tworzymy obiekt geometrii `geometry` reprezentujący polygon. Następnie, za pomocą metody `area()` obliczamy pole powierzchni `area` na podstawie tego obiektu.
-
-#### - Aktualizacja wyniku w interfejsie użytkownika
-
-Ostatnia linia kodu aktualizuje wynik pola powierzchni w interfejsie użytkownika, ustawiając tekst w etykiecie `PoleWynik` na odpowiednią wartość. W tekście jest wyświetlane pole powierzchni oraz numery identyfikacyjne punktów.
-
-Dodatkowo, metoda zawiera dodatkowy fragment kodu, który mierzy pole powierzchni dla pierwszych trzech wybranych punktów na warstwie, korzystając z klasy `QgsDistanceArea`. Wynik tego pomiaru również jest aktualizowany w interfejsie użytkownika.
-
-Podsumowując, metoda `pole` służy do obliczania pola powierzchni na podstawie wybranych punktów na warstwie i aktualizuje wynik w interfejsie użytkownika.
-
-
-
-
+#### - Zaokrąglenie i aktualizacja wyniku w interfejsie użytkownika
+Po obliczeniu pola powierzchni, zaokrąglamy je do czterech miejsc po przecinku i aktualizujemy wynik w interfejsie użytkownika. Jeśli liczba wybranych punktów jest większa niż 4, komunikat wyświetla się w oknie dialogowym za pomocą metody `show_message_box()`. Taki rodzaj wyświetlania wyniku jest wygodniejszy dla dużej ilości punktów. W przeciwnym razie, ustawiamy tekst wyniku w etykiecie `PoleWynik`.
 
 
 
