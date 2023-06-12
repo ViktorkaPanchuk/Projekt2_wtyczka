@@ -155,9 +155,12 @@ W programie Qgis przy wykoaniu wtyczki pojawia się błąd pythona o treści:
 
 
 
+## Przykłady użycia
 
+![Example screenshot](/screens/wysokosc.png)
 
+![Example screenshot](/screens/pole1.png)
 
-
+![Example screenshot](/screens/pole2.png)
 
 
