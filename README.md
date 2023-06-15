@@ -138,7 +138,7 @@ Aby dodać wtyczkę do programu QGIS, wykonaj następujące kroki:
 Ponadto punkty muszą mieć współrzędne X, Y i Z (w tabeli atrybutów xcoord, ycoord, zcoord). W innym przypadku w QGIS zmienić nazwę atrybutu wysokości na "zcoord". Najlepiej żeby były to punkty na warstwie z dodaną geometrią. 
 
 W przypadku wyświetlania komunikatu "Warstwa o podanej nazwie nie istnieje" należy wykonać następujące kroki w programie QGIS:
-1. Kliknąć na warstwę, dlz której chcemy wykonać obliczenia.
+1. Kliknąć na warstwę, dla której chcemy wykonać obliczenia.
 2. W pasku menu: Wektor -> Narzędzia geometrii -> Dodaj atrybuty geometrii.
 3. W okienku zaznaczyć Warstwę weściową i Układ projektu, następnie Uruchom i Zamknij.
 4. Kliknąć na warstwę "Warstwa z dodaną geometrią".
