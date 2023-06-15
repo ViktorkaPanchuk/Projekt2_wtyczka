@@ -108,30 +108,42 @@ Po obliczeniu pola powierzchni, zaokrąglamy je do czterech miejsc po przecinku 
 
 
 
-## Dodanie wtyczki do programu Qgis
+## Dodanie wtyczki do programu Qgis i sprawdzenie poprawnego działania na pliku Testowym
 
 Aby dodać wtyczkę do programu QGIS, wykonaj następujące kroki:
 
 1. Pobierz wszystkie pliki z repozytorium.
-2. Znajdź folder z wtyczkami programu QGIS na swoim komputerze. Zazwyczaj ścieżka do tego folderu to: `C:\Users\user\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins`. 
+2. Plik o nazwie "PluginTest_xyz.qgz" przenieś do dowolnego swojego folderu.
+3. Znajdź folder z wtyczkami programu QGIS na swoim komputerze. Zazwyczaj ścieżka do tego folderu to: `C:\Users\user\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins`. 
    * Uwaga: Upewnij się, że podstawiasz odpowiednią nazwę użytkownika w ścieżce folderu (`user`).
-3. Utwórz w folderze plugins folder o nazwie `Wtyczka_KS_VP` (ważne żeby nazwa folderu była taka sama), a następnie wklej wszystkie pliki pobrane z repozytorium do tego folderu.
-4. Uruchom program QGIS.
-5. Przejdź do menu "Wtyczki" (Plugins) na pasku menu głównego QGIS.
-6. Wybierz opcję "Zarządzaj wtyczkami" (Manage and Install Plugins). Otworzy się okno zarządzania wtyczkami.
-7. W oknie zarządzania wtyczkami znajdź swoją wtyczkę na liście.
-8. Upewnij się, że wtyczka jest zaznaczona, aby ją aktywować.
-9. Kliknij przycisk "Zainstaluj wtyczkę" (Install Plugin).
-10. Po zainstalowaniu wtyczki, zamknij okno zarządzania wtyczkami.
-11. Teraz wtyczka powinna być dostępna w programie QGIS. Możesz ją znaleźć i używać poprzez menu "Wtyczki" (Plugins) lub za pomocą innych dostępnych interfejsów użytkownika.
-
-Po wykonaniu tych kroków wtyczka powinna być zainstalowana i gotowa do użycia w programie QGIS.
+4. Utwórz w folderze plugins folder o nazwie `Wtyczka_KS_VP` (ważne żeby nazwa folderu była taka sama), a następnie wklej wszystkie pliki pobrane z repozytorium (Oprócz pliku o nazwie "PluginTest_xyz.qgz") do tego folderu.
+5. Uruchom program QGIS.
+6. Przejdź do menu "Wtyczki" (Plugins) na pasku menu głównego QGIS.
+7. Wybierz opcję "Zarządzaj wtyczkami" (Manage and Install Plugins). Otworzy się okno zarządzania wtyczkami.
+8. W oknie zarządzania wtyczkami znajdź swoją wtyczkę na liście.
+9. Upewnij się, że wtyczka jest zaznaczona, aby ją aktywować.
+10. Kliknij przycisk "Zainstaluj wtyczkę" (Install Plugin).
+11. Po zainstalowaniu wtyczki, zamknij okno zarządzania wtyczkami.
+12. Teraz wtyczka powinna być dostępna w programie QGIS. Możesz ją znaleźć i używać poprzez menu "Wtyczki" (Plugins) lub za pomocą innych dostępnych interfejsów użytkownika.
+13. Do programu QGIS importuj plik o nazwie "PluginTest_xyz.qgz", otworzy się projekt z warstwą o nazwie "punktyxyzz".
+14. Klikając prawy przycisk myszy należy sprawdzić atrybuty wybierając opcję "Otwórz tabelę atrybutów". Atrybuty muszą zawierać współrzędne X,Y,Z o nazwach "xcoord,ycoord,zcoord".
+15. Wybrać dwa punkty na warstwie -> Wtyczki -> Wtyczka_KS_VP -> Wtyczka_KS_VP -> Oblicz wysokość.
+16. Wybrać trzy lub więcej punktów -> Oblicz pole.
+17. Po wykonaniu tych kroków i otzymaniu wyników wtyczka zostanie przetestowana i można ją stosować przy własnych obliczeniach.
 
 
 ## Uwagi
 
 Żeby wtyczka działała w progrmie Qgis muszą zostać zaznaczone dokładnie 2 punkty dla różnicy wysokości, oraz przynajmniej 3 punkty dla obliczenia pola.
 Ponadto punkty muszą mieć współrzędne X, Y i Z (w tabeli atrybutów xcoord, ycoord, zcoord). W innym przypadku w QGIS zmienić nazwę atrybutu wysokości na "zcoord". Najlepiej żeby były to punkty na warstwie z dodaną geometrią. 
+
+W przypadku wyświetlania komunikatu "Warstwa o podanej nazwie nie istnieje" należy wykonać następujące kroki w programie QGIS:
+1. Kliknąć na warstwę, dlz której chcemy wykonać obliczenia.
+2. W pasku menu: Wektor -> Narzędzia geometrii -> Dodaj atrybuty geometrii.
+3. W okienku zaznaczyć Warstwę weściową i Układ projektu, następnie Uruchom i Zamknij.
+4. Kliknąć na warstwę "Warstwa z dodaną geometrią".
+5. W pasku menu: Wektor -> Narzędzia geometrii -> Wydobądź wierzchołki...
+6. Na warstwie "Wierzchołki wykonaj obliczenia.
 
 
 ## Przyklady uzycia
