@@ -11,7 +11,7 @@
 - [Metoda init](#metoda-init)
 - [Metoda roznica_wysokosci](#metoda-roznica_wysokosci)
 - [Metoda Pole](#metoda-pole)
-- [Dodanie wtyczki do programu Qgis](#dodanie-wtyczki-do-programu-qgis)
+- [Dodanie wtyczki do programu Qgis i sprawdzenie poprawnego działania na pliku Testowym](#dodanie-wtyczki-do-programu-qgis-i-sprawdzenie-poprawnego-działania-na-pliku-testowym)
 - [Uwagi](#uwagi)
 - [Przyklady uzycia](#przyklady-uzycia)
 ## Opis wtyczki
