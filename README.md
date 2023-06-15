@@ -113,7 +113,7 @@ Po obliczeniu pola powierzchni, zaokrąglamy je do czterech miejsc po przecinku 
 Aby dodać wtyczkę do programu QGIS, wykonaj następujące kroki:
 
 1. Pobierz wszystkie pliki z repozytorium.
-2. Plik o nazwie "PluginTest_xyz.qgz" przenieś do dowolnego swojego folderu.
+2. Plik o nazwie "punktyxyzz.gpkg" przenieś do dowolnego swojego folderu.
 3. Znajdź folder z wtyczkami programu QGIS na swoim komputerze. Zazwyczaj ścieżka do tego folderu to: `C:\Users\user\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins`. 
    * Uwaga: Upewnij się, że podstawiasz odpowiednią nazwę użytkownika w ścieżce folderu (`user`).
 4. Utwórz w folderze plugins folder o nazwie `Wtyczka_KS_VP` (ważne żeby nazwa folderu była taka sama), a następnie wklej wszystkie pliki pobrane z repozytorium (Oprócz pliku o nazwie "PluginTest_xyz.qgz") do tego folderu.
@@ -125,7 +125,7 @@ Aby dodać wtyczkę do programu QGIS, wykonaj następujące kroki:
 10. Kliknij przycisk "Zainstaluj wtyczkę" (Install Plugin).
 11. Po zainstalowaniu wtyczki, zamknij okno zarządzania wtyczkami.
 12. Teraz wtyczka powinna być dostępna w programie QGIS. Możesz ją znaleźć i używać poprzez menu "Wtyczki" (Plugins) lub za pomocą innych dostępnych interfejsów użytkownika.
-13. Do programu QGIS importuj plik o nazwie "PluginTest_xyz.qgz", otworzy się projekt z warstwą o nazwie "punktyxyzz".
+13. Do programu QGIS importuj plik o nazwie "punktyxyzz.gpkg" (w tym celu można przenieść plik zamiast opcji "Importuj"), otworzy się projekt z warstwą o nazwie "punktyxyzz".
 14. Klikając prawy przycisk myszy należy sprawdzić atrybuty wybierając opcję "Otwórz tabelę atrybutów". Atrybuty muszą zawierać współrzędne X,Y,Z o nazwach "xcoord,ycoord,zcoord".
 15. Wybrać dwa punkty na warstwie -> Wtyczki -> Wtyczka_KS_VP -> Wtyczka_KS_VP -> Oblicz wysokość.
 16. Wybrać trzy lub więcej punktów -> Oblicz pole.
